@@ -1,0 +1,268 @@
+{
+  "header": {
+    "dashboard": "Dashboard",
+    "process": "Process Cv",
+    "session": "Hiring Session",
+    "schedule": "Schedule",
+    "management": "Management",
+    "logout": "Logout",
+    "cv": "CV",
+    "candidate": "Candidate"
+  },
+  "dashboard": {
+    "content": "dashboard"
+  },
+  "process": {
+    "home": {
+      "heading": "Welcome to process CVs",
+      "subHeading1": "If you haven't upload any cv yet, give it a try",
+      "subHeading2": "Already uploaded cv, go and check in the upload history below",
+      "titleUploader": "CV uploader",
+      "btnUpload": "Upload",
+      "tip": "TIPS",
+      "tipAllow": "Only allow file types",
+      "tipImg": "image",
+      "tipFileSize": "File size ",
+      "nameTable": "Upload history",
+      "headerTable": {
+        "date": "Date",
+        "uploader": "Uploader",
+        "cv": "CVs",
+        "approved": "Approved",
+        "action": "Action"
+      },
+      "btnView": "View",
+      "btnExport": "Export CSV"
+    },
+    "details": {
+      "listCv": "CV list",
+      "detail": "Extracted detail",
+      "select": "Select cv to show more information",
+      "dupCv": "Duplicated cv",
+      "cvSaved": "Saved",
+      "cvRejected": "Rejected",
+      "schoolNote": "1 is the best",
+      "perInfo": "Personal Infomation",
+      "avatar": "Avatar",
+      "name": "Name",
+      "birth": "Birthday",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "phone" : "Phone",
+      "email" : "Email",
+      "address": "Address",
+      "education": "EDUCATION",
+      "school" : "School",
+      "typeSchool": "School type",
+      "schYear" : "School year",
+      "major": "Major",
+      "lv" : "Level",
+      "status": "Status",
+      "graduate": "Graduated",
+      "ability": "ABILITY",
+      "skill" : "Skills",
+      "skillNote": "Press enter to add skill",
+      "noteNote": "Only required when rejecting cv",
+      "otherInfo": "OTHER INFORMATION",
+      "note": "Note",
+      "source": "CV source",
+      "btnSave": "Save",
+      "btnReject": "Reject",
+      "btnRemove": "Remove"
+    },
+    "upload": {
+      "note": "Drag and drop files",
+      "or": "Or",
+      "btnBrowse": "Browse",
+      "btnUpload": "Upload",
+      "btnResult": "View Result"
+    }
+  },
+  "schedule": {
+    "session": "Schedule",
+    "subSession": "Sub session",
+    "round": "Round",
+    "btnSave": "Save",
+    "btnClose": "Close",
+    "btnSend": "Send",
+    "btnSendTo": "Send mail to candidate",
+    "headerTable": {
+      "perInfo": "Person Information",
+      "round": "Name Round",
+      "date": "Date",
+      "time": "Time",
+      "start": "Time Start",
+      "end": "Time End",
+      "place": "Place",
+      "inter": "Interviewer",
+      "stt": "Status",
+      "updateSche": "Update"
+    },
+    "upSttDialog": {
+      "header": "UPDATE STATUS",
+      "inter": "Interview status",
+      "sttUnCon": "Unconfirmed",
+      "sttAgree": "Agree",
+      "sttRefuse": "Refuse",
+      "sttResche": "Reschedule",
+      "note": "Note",
+      "noteRequire": "Note is required"
+    },
+    "upScheDialog": {
+      "editSche": "EDIT SCHEDULE",
+      "upPer": "Update only this candidate",
+      "upOther": "Update for rest candidate",
+      "upAll": "Update for all candidate in this round"
+    },
+    "mailDialog": {
+      "header": "SEND MAIL TO CANDIDATE",
+      "subject": "Subject",
+      "content": "Content",
+      "notSend": "Mail hasn't been sent",
+      "send": "Mail was sent",
+      "sendErr": "Error sending mail"
+    }
+  },
+  "manageCv": {
+    "btnFind": "Find",
+    "btnAdd": "Add to current hiring session",
+    "btnDelete": "Delete",
+    "btnEdit": "Edit",
+    "btnClose": "Close",
+    "header": "CV Management",
+    "period": "Period",
+    "filter": {
+      "used": "used",
+      "new": "new",
+      "reject": "reject",
+      "delayInter": "delayed interview",
+      "deniedInter": "denied interview",
+      "confirm": "confirmed",
+      "advanced": "Advanced",
+      "scho": "School",
+      "schoNote": "name of school",
+      "from": "from",
+      "to": "to",
+      "gpa": "GPA",
+      "gender": "Gender",
+      "fmale": "Female",
+      "male": "Male",
+      "age": "Age",
+      "skill": "Skills"
+    },
+    "headerTable": {
+      "perInfo": "PERSONAL",
+      "contact": "CONTACT",
+      "edu": "EDUCATION",
+      "skill": "ABILITY",
+      "file": "FILE",
+      "note": "NOTE",
+      "stt": "STATUS"
+    },
+    "detailDialog": {
+      "perInfo": "PERSONAL INFOMATION",
+      "ava": "Avatar",
+      "name": "Name",
+      "birth": "Birthday",
+      "gender": "Gender",
+      "fmale": "Female",
+      "male": "Male",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "edu": "EDUCATIONAL INFOMATION",
+      "sch": "School",
+      "major": "Major",
+      "lv": "Level",
+      "schYear": "School year",
+      "gpa": "GPA",
+      "stt": "Status",
+      "graduate": "Graduated",
+      "invi": "INDIVIDUAL ABILITY",
+      "skill": "Skills",
+      "skillRequired": "Press enter to add skill",
+      "otherInfo": "OTHER INFORMATION",
+      "note": "Note"
+    }
+
+  },
+  "hiring": {
+    "home": {
+      "notify": "Select session to show more information",
+      "btnAdd": "+ Add",
+      "btnView": "View",
+      "btnEdit": "Edit",
+      "btnSave": "Save",
+      "btnCancel": "Cancel",
+      "btnDelete": "Delete",
+      "header": "Hiring session",
+      "ses": "SESSIONS",
+      "subSes": "SUB SESSION",
+      "pending": "Pending",
+      "finish": "Finish",
+      "editTitle": "EDIT SESSION",
+      "headerTable": {
+        "name": "Name",
+        "start": "Start",
+        "end": "End",
+        "stt": "Status",
+        "action": "Actions"
+      },
+      "nSesDialog": {
+        "header": "NEW SESSION",
+        "sesName": "Session name",
+        "start": "Start",
+        "end": "End"
+      },
+      "nSubSesDialog": {
+        "header": "NEW SUB SESSION",
+        "sesName": "Session name",
+        "start": "Start",
+        "end": "End",
+        "inter": "Interview",
+        "test": "Test",
+        "number": "Number of interviewer"
+      }
+
+    },
+    "detail": {
+      "btnAdd": "Add to hiring session",
+      "btnClear": "Clear filter",
+      "btnEdit": "Edit",
+      "btnClose": "Close",
+      "filter": {
+        "name": "FILTER",
+        "from": "From",
+        "to": "To",
+        "stt": "Status",
+        "rej": "Reject",
+        "conf": "Confirmed",
+        "nconf": "Not Confirmed"
+      },
+      "tabName": "LIST OF POTENTIAL CVS",
+      "headerTable": {
+        "ava": "Avatar",
+        "perInfo": "Person Information",
+        "fileInfo": "File Information",
+        "note": "Note",
+        "stt": "Status"
+      }
+    }
+  },
+  "leader": {
+    "home": {
+      "heading": "Welcome to interview schedule",
+      "subHeading1": "The table below is your interview schedule",
+      "subHeading2": "Click any row to open interview candidate dialog",
+      "headerTable": {
+        "candidate": "Candidate",
+        "round": "Round",
+        "time": "Time",
+        "place": "Place",
+        "status": "Is interviewed"
+      }
+    }
+  }
+
+}

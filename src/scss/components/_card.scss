@@ -1,0 +1,10 @@
+@import '../abstracts/variables';
+
+.card-title {
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $c-primary-1;
+    padding: 1em 2em;
+  }

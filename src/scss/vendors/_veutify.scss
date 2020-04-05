@@ -1,0 +1,65 @@
+@import '../abstracts/variables';
+
+.container--fluid {
+    height: 100%;
+}
+.v-content {
+    background-color: $bg-primary-1;
+}
+.v-toolbar {
+    box-shadow: 0px -10px 12px black;
+}
+
+.navbar {
+    .hidden-menu {
+        margin-left: -4vw;
+        color: $c-text-dark-1;
+        cursor: pointer;
+    }
+    background-color: $c-primary-2 !important;
+    .v-toolbar__content {
+        padding: 0 5vw;
+    }
+    .theme--light.v-btn--active.v-btn--active {
+        border-bottom: 2px solid $c-text-dark-1 !important;
+        color: $c-text-dark-1 !important;
+        font-weight: bold;
+    }
+    .v-btn:before {
+        background-color: transparent;
+    }
+    .theme--light.v-btn {
+        color: $c-text-dark-color-3;
+    }
+    .v-btn--active {
+        border-bottom: 2px solid $c-text-dark-1 !important;
+    }
+    &__logo {
+        display: inline-block;
+        overflow: visible;
+        font-size: 24px;
+        font-weight: bold;
+        color: $c-logo;
+    }
+    
+    &__nav-box {
+        width: 100%;
+        text-align: center;
+        height: 100%;
+        line-height: 50px;
+        &__navlink {
+            font-size: 16px; 
+            text-transform: unset;
+            height: 100% !important;
+            border-radius: 0;
+        }
+    }
+}
+
+.v-data-table td {
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+}
+.v-data-table tbody td {
+    font-size: 16px !important;
+}

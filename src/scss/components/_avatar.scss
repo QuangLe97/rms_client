@@ -1,0 +1,16 @@
+.avatar {
+    display: inline-block;
+    .v-image {
+        width: 70px;
+        height: 70px;
+        border-radius: 70px;
+        box-shadow: inset 0 0 0 1px hsla(0, 0%, 0%, 0.2);
+    }
+    &--big {
+        .v-image {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+        }
+    }
+}

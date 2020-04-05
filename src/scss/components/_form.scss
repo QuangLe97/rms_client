@@ -1,0 +1,86 @@
+@import '../abstracts/variables';
+
+.form {
+    font-size: 14px;
+    &__title {
+        font-size: 12px;
+        text-transform: uppercase;
+        color: $c-text-3;
+        font-weight: normal;
+        padding: 20px 0;
+        letter-spacing: 0.05em;
+    }
+    .label {
+        font-size: 14px;
+        color: $c-text-2;
+        display: inline-block;
+        min-width: 100px;
+        vertical-align: top;
+        margin-bottom: 12px;
+    }
+    .input {
+        position: relative;
+        display: inline-block;
+        width: auto;
+        .v-input__slot {
+            box-shadow: none !important;
+            background-color: white !important;
+            border: 1px solid $bg-primary-2;
+        }
+        &__radio {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .theme--light.v-chip:not(.v-chip--active) {
+            background-color: $bg-primary-1;
+        }
+        .theme--light.v-icon {
+            color: $c-icon;
+        }
+        &--no-border {
+            .v-input__slot {
+                border: none;
+            }
+        }
+        &--grey {
+            .v-input__slot {
+                background-color: $bg-primary-1 !important;
+            }
+        }
+        &--long {
+            width: 100%;
+            max-width: 300px;
+        }
+        &--short {
+            min-width: 150px;
+            max-width: 20%;
+        }
+        &--normal {
+            min-width: 200px;
+            max-width: 50%;
+        }
+        &--full {
+            width: 100%;
+        }
+        textarea {
+            margin-top: 0 !important;
+            line-height: 1.5em;
+        }
+    }
+    &__footer {
+        background-color: $bg-primary-1;
+        margin-left: 0;
+        margin-bottom: 0;
+        height: 70px;
+        position: sticky;
+        bottom: 0;
+        padding-left: 40px;
+    }
+    &__separator {
+        margin: 0 -2em;
+        background-color: $bg-primary-1;
+        hr {
+            border: 1px solid $bg-primary-1 !important;
+        }
+    }
+}

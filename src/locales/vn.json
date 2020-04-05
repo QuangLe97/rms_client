@@ -1,0 +1,254 @@
+{
+  "header": {
+    "dashboard": "Bảng điều khiển",
+    "process": "Quy trình Cv",
+    "session": "Đợt tuyển dụng",
+    "schedule": "Lịch trình",
+    "management": "Quản lý",
+    "logout": "Đăng xuất",
+    "cv": "CV",
+    "candidate": "Ứng viên"
+  },
+  "dashboard": {
+    "content": "Bảng điều khiển"
+  },
+  "process": {
+    "home": {
+      "heading": "Chào mừng đến với trang xử lý CV",
+      "subHeading1": "Nếu bạn chưa tải lên CV lần nào, thử xem nhé",
+      "subHeading2": "Hoặc xem lịch sử tải về ở bên dưới nhé",
+      "titleUploader": "Tải lên CV",
+      "btnUpload": "Tải lên",
+      "tip": "LỜI KHUYÊN",
+      "tipAllow": "Chỉ cho phép các loại tệp",
+      "tipImg": "Hình ảnh",
+      "tipFileSize": "Kích thước file ",
+      "nameTable": "Lịch sử tải lên",
+      "headerTable": {
+        "date": "Ngày",
+        "uploader": "Người đăng",
+        "cv": "Số lượng Cv",
+        "approved": "Đồng ý",
+        "action": "Hoạt động"
+      },
+      "btnView": "Xem",
+      "btnExport": "Xuất file CSV"
+    },
+    "details": {
+      "listCv": "Danh sách CV",
+      "detail": "Thông tin chi tiết",
+      "select": "Chọn cv để hiển thị thêm thông tin",
+      "dupCv": "Cv trùng lặp",
+      "cvSaved": "Đã lưu",
+      "cvRejected": "Đã từ chối",
+      "schoolNote": "1 là tốt nhất",
+      "perInfo": "Thông tin ứng viên",
+      "avatar": "Hình ảnh",
+      "name": "Họ và tên",
+      "birth": "Ngày sinh",
+      "gender": "Giới tính",
+      "male": "Nam",
+      "female": "Nữ",
+      "phone" : "Số điện thoại",
+      "email" : "Email",
+      "address": "Địa chỉ",
+      "education": "Học vấn",
+      "school" : "Trường",
+      "typeSchool": "Loại Trường",
+      "schYear" : "Khóa học",
+      "major": "Chuyên ngành",
+      "lv" : "Trình độ",
+      "status": "Tình trạng",
+      "graduate": "Đã tốt nghiệp",
+      "ability": "Khả năng",
+      "skill" : "Kỹ năng",
+      "skillNote": "Nhấn Enter để thêm kỹ năng",
+      "noteNote": "Chỉ yêu cầu khi từ chối cv",
+      "otherInfo": "Thông tin khác",
+      "note": "Ghi chú",
+      "source": "Nguồn CV",
+      "btnSave": "Lưu",
+      "btnReject": "Từ chối",
+      "btnRemove": "Xóa"
+    },
+    "upload": {
+      "note": "Kéo và thả tập tin",
+      "or": "Hoặc",
+      "btnBrowse": "Duyệt",
+      "btnUpload": "Tải lên",
+      "btnResult": "Xem kết quả"
+    }
+  },
+  "schedule": {
+    "session": "Lịch trình",
+    "subSession": "Đợt tuyển dụng",
+    "round": "Vòng",
+    "btnSave": "Lưu",
+    "btnClose": "Đóng",
+    "btnSend": "Gửi",
+    "btnSendTo": "Gửi thư cho ứng viên",
+    "headerTable": {
+      "perInfo": "Thông tin cá nhân",
+      "round": "Tên vòng",
+      "date": "Ngày",
+      "time": "Thời gian",
+      "start": "Thời gian bắt đầu",
+      "end": "Thời gian kết thúc",
+      "place": "Địa điểm",
+      "inter": "Người phỏng vấn",
+      "stt": "Trạng thái",
+      "updateSche": "Chỉnh sửa"
+    },
+    "upSttDialog": {
+      "header": "CẬP NHẬT TRẠNG THÁI",
+      "inter": "Tình trạng phỏng vấn",
+      "sttUnCon": "Chưa xác nhận",
+      "sttAgree": "Đồng ý",
+      "sttRefuse": "Từ chối",
+      "sttResche": "Sắp xếp lại",
+      "note": "Ghi chú",
+      "noteRequire": "Ghi chú là bắt buộc"
+    },
+    "upScheDialog": {
+      "editSche": "Chỉnh sửa lịch trình",
+      "upPer": "Chỉ cập nhật ứng viên này",
+      "upOther": "Cập nhật cho các ứng viên khác",
+      "upAll": "Cập nhật cho tất cả các ứng cử viên trong vòng này"
+    },
+    "mailDialog": {
+      "header": "Gửi thư đến ứng viên",
+      "subject": "Chủ đề",
+      "content": "Nội dung",
+      "notSend": "Chưa gửi mail",
+      "send": "Đã gửi mail",
+      "sendErr": "Gửi thư lỗi"
+    }
+  },
+  "manageCv": {
+    "btnFind": "Tìm kiếm",
+    "btnAdd": "Thêm vào phiên tuyển dụng hiện tại",
+    "btnDelete": "Xóa",
+    "btnEdit": "Chỉnh sửa",
+    "btnClose": "Đóng",
+    "header": "Quản lý CV",
+    "period": "Giai đoạn",
+    "filter": {
+      "used": "đang dùng",
+      "new": "Mới",
+      "reject": "Từ chối",
+      "delayInter": "phỏng vấn trễ",
+      "deniedInter": "từ chối phỏng vấn",
+      "confirm": "đã xác nhận",
+      "advanced": "Nâng cao",
+      "scho": "Trường",
+      "schoNote": "tên trường",
+      "from": "Từ",
+      "to": "Đến",
+      "gpa": "Điểm trung bình",
+      "gender": "Giới tính",
+      "fmale": "Nữ",
+      "male": "Nam",
+      "age": "Tuổi",
+      "skill": "Kỹ năng"
+    },
+    "headerTable": {
+      "perInfo": "THÔNG TIN",
+      "contact": "LIÊN HỆ",
+      "edu": "HỌC VẤN",
+      "skill": "KHẢ NĂNG",
+      "file": "TẬP TIN",
+      "note": "GHI CHÚ",
+      "stt": "TRẠNG THÁI"
+    },
+    "detailDialog": {
+      "perInfo": "THÔNG TIN CÁ NHÂN",
+      "ava": "Hình ảnh",
+      "name": "Họ tên",
+      "birth": "Ngày sinh",
+      "gender": "Giới tính",
+      "fmale": "Nữ",
+      "male": "Nam",
+      "phone": "Số điện thoại",
+      "email": "Email",
+      "address": "Địa chỉ",
+      "edu": "Thông tin học vấn",
+      "sch": "Trường",
+      "major": "Chuyên ngành",
+      "lv": "Trình độ",
+      "schYear": "Năm học",
+      "gpa": "GPA",
+      "stt": "Trạng thái",
+      "graduate": "Đã tốt nghiệp",
+      "invi": "KHẢ NĂNG CÁ NHÂN",
+      "skill": "Kỹ năng",
+      "skillRequired": "Nhấn Enter để thêm kỹ năng",
+      "otherInfo": "THÔNG TIN KHÁC",
+      "note": "Ghi chú"
+    }
+  },
+
+  "hiring": {
+    "home": {
+      "notify": "Chọn phiên để hiển thị thêm thông tin",
+      "btnAdd": "+ Thêm",
+      "btnView": "Xem",
+      "btnEdit": "Chỉnh sửa",
+      "btnSave": "Lưu",
+      "btnCancel": "Hủy",
+      "btnDelete": "Xóa",
+      "header": "Phiên tuyển dụng",
+      "ses": "Phiên tuyển dụng",
+      "subSes": "Đợt tuyển dụng",
+      "pending": "Đang chờ xử lý",
+      "finish": "Kết thúc",
+      "editTitle": "CHỈNH SỬA ĐỢT TUYỂN DỤNG",
+      "headerTable": {
+        "name": "Tên",
+        "start": "Thời gian bắt đầu",
+        "end": "Thời gian kết thúc",
+        "stt": "Tình trạng",
+        "action": "Hành động"
+      },
+      "nSesDialog": {
+        "header": "Phiên tuyển dụng mới",
+        "sesName": "Tên phiên",
+        "start": "Bắt đầu",
+        "end": "Kết thúc"
+      },
+      "nSubSesDialog": {
+        "header": "Đợt tuyển dụng mới",
+        "sesName": "Tên đợt",
+        "start": "Bắt đầu",
+        "end": "Kết thúc",
+        "inter": "Người phỏng vấn",
+        "test": "Ứng viên",
+        "number": "Số lượng"
+      }
+
+    },
+    "detail": {
+      "btnAdd": "Thêm vào phiên tuyển dụng",
+      "btnClear": "Làm sạch bộ lọc",
+      "btnEdit": "Chỉnh sửa",
+      "btnClose": "Đóng",
+      "filter": {
+        "name": "BỘ LỌC",
+        "from": "Từ",
+        "to": "Đến",
+        "stt": "Trạng thái",
+        "rej": "Từ chối",
+        "conf": "Xác nhận",
+        "nconf": "Chưa xác nhận"
+      },
+      "tabName": "DANH SÁCH CÁC CV TIỀM NĂNG",
+      "headerTable": {
+        "ava": "Hình ảnh",
+        "perInfo": "Thông tin cá nhân",
+        "fileInfo": "Thông tin file",
+        "note": "Ghi chú",
+        "stt": "Trạng thái"
+      }
+    }
+  }
+
+}

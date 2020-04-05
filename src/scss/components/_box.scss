@@ -1,0 +1,29 @@
+.box {
+    border-radius: 4px;
+    padding: 2em;
+    font-size: 14px;
+    
+    &--white {
+        background-color: white !important;
+    }
+    &--shadow {
+        box-shadow: 0 4px 6px hsla(0, 0%, 0%, 0.2);
+    }
+}
+
+.box-heading {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    &__title {
+        color: $c-text-3;
+        display: inline-block;
+        font-size: 14px;
+        padding-bottom: 1rem;
+        font-weight: 700;
+    }
+    &__btn {
+        float: right;
+        margin-top: 7px;
+    }
+}

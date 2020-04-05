@@ -1,0 +1,16 @@
+@import '../abstracts/variables';
+
+.leader-home {
+    background-color: $bg-primary-1;
+    padding-top: 5vh;
+    width: 100%;
+    height: 100%;
+
+    .avatar {
+        height: 100%;
+        display: grid;
+        align-items: center;
+        justify-items: start;
+        padding: 0.5em;
+    }
+}

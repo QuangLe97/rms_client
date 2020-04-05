@@ -1,0 +1,79 @@
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+@import './box';
+
+.column {
+    height: 95vh;
+    overflow: auto;
+    padding-bottom: 0;
+}
+
+.left-list {
+    background-color: transparent !important;
+    .l-item {
+        &__status {
+            font-size: 12px;
+            font-style: italic;
+        }
+        .theme--light.v-list-item--active:before {
+            opacity: 1;
+            background-color: white;
+        }
+    }
+    .l-item.v-list-item .v-list-group__header {
+        padding: 0;
+    }
+    .v-list-item--active {
+        background-color: transparent !important;
+        border-left: 2px solid $c-primary-1;
+        color: $c-primary-1;
+    }
+    .v-list-item__title + .v-list-item__subtitle {
+        margin-top: -12px;
+    }
+    .v-list-item--link {
+        background-color: transparent !important;
+    }
+    .l-item.v-list-item {
+        min-height: 46px;
+    }
+    .v-list-item__title {
+        font-size: 14px;
+        line-height: 46px;
+    }
+    .v-list-item__content {
+        padding: 0;
+    }
+}
+
+
+.middle-detail {
+    position: relative;
+}
+.right-raw {
+    .v-tabs {
+        width: 200px;
+    }
+    .v-window {
+        height: 100%;
+    }
+    .v-window-item, .v-card, .v-card__text {
+        height: 100%;
+    }
+    .v-window, .v-window .v-card {
+        background-color: transparent;
+    }
+    .v-tabs-bar {
+        height: 24px;
+    }
+}
+.btn-box {
+    @include clearfix;
+    margin-bottom: 24px;
+}
+.left-list .v-item-group {
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-left: -1rem;
+}

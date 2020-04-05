@@ -1,0 +1,42 @@
+@import '../abstracts/variables';
+
+.uploadfile {
+  .btn-back.btn-back.btn-back.btn-back.btn-back {
+    float: left;
+    color: $c-text-3;
+    background-color: $bg-primary-2;
+    font-size: 1.7rem;
+  }
+  .v-btn:before {
+    background-color: unset;
+  }
+  .v-btn--contained {
+    box-shadow: none;
+  }
+}
+
+.btn {
+  box-shadow: none !important;
+  text-transform: initial;
+  letter-spacing: normal;
+  &--primary {
+    color: white !important;
+    background-color: $c-secondary-2 !important;
+    font-weight: bold;
+  }
+  &--secondary {
+    color: $c-text-2 !important;
+    background-color: transparent !important;
+    border: 1px solid $c-icon !important;
+    &--white {
+      color: $c-text-dark-color-2 !important;
+    }
+  }
+  &--tertiary {
+    color: $c-text-3 !important;
+    background-color: transparent !important;
+    &--white {
+      color: $c-text-dark-color-3 !important;
+    }
+  }
+}

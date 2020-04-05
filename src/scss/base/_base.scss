@@ -1,0 +1,12 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+.main-container {
+    margin: 0 5vw;
+    height: 100%;
+}

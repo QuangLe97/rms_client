@@ -89,7 +89,7 @@
           <v-col
             style="background-color: white">
             <!--            profile infomation-->
-<!--              <profile-infor/>-->
+            <!-- <profile-infor/>-->
             <v-form
               v-show="profileTabs[0].active">
               <v-container fluid>

@@ -69,7 +69,7 @@
           <!--          key 2-->
           <div
             class="col-12"
-          style="padding: 0px">
+            style="padding: 0px">
             <!--            style="margin-top: -20px">-->
             <span style="font-size: 25px;">Mô tả dự án</span><br>
             <span style="font-size: 20px;">Mô tả ABC12312313123</span>

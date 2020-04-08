@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <div v-if="!authLoggedIn">
+    <!-- <div v-if="!authLoggedIn">
       <WelcomePage/>
-    </div>
+    </div> -->
     <v-app
-      v-else
       id="inspire">
       <!-- App bar -->
       <v-app-bar

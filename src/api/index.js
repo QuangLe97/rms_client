@@ -39,9 +39,9 @@ const LOG_OUT = 'logout'
 const CHECK_AUTH = 'auth/check'
 const CV_APPROVAL = 'candidates/cv-approval'
 
-// eslint-disable-next-line no-unused-vars
-const GET_DRAFT_CANDIDATE = 'candidatefromcv'
-const DELETE_DRAFT_CANDIDATE = 'candidatefromcv/delete'
+// // eslint-disable-next-line no-unused-vars
+// const GET_DRAFT_CANDIDATE = 'candidatefromcv'
+// const DELETE_DRAFT_CANDIDATE = 'candidatefromcv/delete'
 const CV_GROUP = 'serializer/candidate-from-cv/group_by_user_and_date'
 const GET_LIST_BY_ID = 'serializer/candidate-from-cv/get_list_cv_by_date'
 const CV_INFO = 'serializer/candidate-from-cv'

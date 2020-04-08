@@ -30,14 +30,19 @@ async function requireAuth (to, from, next) {
   // console.log(store.state.auth.loggedIn)
   // check login , loading, token ...
   // if (store.state.auth.loggedIn !== true || sessionStorage.getItem('token') !== 'token_ly') {
-  if (!sessionStorage.getItem('isLoading') || sessionStorage.getItem('token') !== 'token_ly') {
-    next({
-      path: '/login',
-      query: { redirect: to.fullPath }
-    })
-  } else {
-    next()
-  }
+
+  /**
+   * Need to be uncomment
+   */
+  next()
+  // if (!sessionStorage.getItem('isLoading') || sessionStorage.getItem('token') !== 'token_ly') {
+  //   next({
+  //     path: '/login',
+  //     query: { redirect: to.fullPath }
+  //   })
+  // } else {
+  //   next()
+  // }
 }
 
 const router = new VueRouter({

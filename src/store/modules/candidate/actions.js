@@ -1,8 +1,7 @@
 import api from '@/api'
 
 export default {
-
-  async searchSearch ({commit}, payload) {
+  async searchSearch ({ commit }, payload) {
     let result
     try {
       const response = await api.searchCandidates(payload)
@@ -19,7 +18,7 @@ export default {
     commit('setPageCount', result.total_page)
   },
 
-  async create ({commit, dispatch}, payload) {
+  async create ({ commit, dispatch }, payload) {
     let result
     console.log(payload)
     try {
@@ -30,14 +29,14 @@ export default {
       return
     }
     if (result.status === 200) {
-      commit('candidate_draft/setDialog', false, {root: true})
-      commit('candidate_draft/setCurrentExperience', [], {root: true})
-      commit('candidate_draft/setCurrentSkill', [], {root: true})
-      commit('candidate_draft/setCurrentCert', [], {root: true})
+      commit('candidate_draft/setDialog', false, { root: true })
+      commit('candidate_draft/setCurrentExperience', [], { root: true })
+      commit('candidate_draft/setCurrentSkill', [], { root: true })
+      commit('candidate_draft/setCurrentCert', [], { root: true })
     }
   },
 
-  async delete ({commit}, payload) {
+  async delete ({ commit }, payload) {
     let result
     try {
       const response = await api.deleteCandidate(payload)
@@ -51,7 +50,7 @@ export default {
     }
   },
 
-  async cvApproval ({commit}, payload) {
+  async cvApproval ({ commit }, payload) {
     let result
     try {
       const response = await api.cvApproval(payload)
@@ -64,7 +63,7 @@ export default {
     }
   },
 
-  async getUploadHistory ({commit}, payload) {
+  async getUploadHistory ({ commit }, payload) {
     let result
     try {
       const response = await api.getUploadHistory(payload)
@@ -77,7 +76,7 @@ export default {
     commit('setUploadHistoryData', result)
   },
 
-  async getListCvByUserId ({commit}, payload) {
+  async getListCvByUserId ({ commit }, payload) {
     let result
     console.log('getListCvByUserId', payload)
     try {
@@ -91,7 +90,7 @@ export default {
     commit('setListCvByUserId', result)
   },
 
-  async getCvInformationById ({commit}, payload) {
+  async getCvInformationById ({ commit }, payload) {
     let result
     try {
       console.log('payload: ', payload)
@@ -119,15 +118,17 @@ export default {
     }
   },
 
-  setProcessCv ({commit}, payload) {
+  setProcessCv ({ commit }, payload) {
     console.log(payload)
     commit('setProcessCv', payload)
   },
 
-  async exportCsv ({commit}, payload) {
+  async exportCsv ({ commit }, payload) {
     try {
       let response = await api.exportCsv(payload)
-      const filename = response.request.getResponseHeader('Content-Disposition')
+      const filename = response.request.getResponseHeader(
+        'Content-Disposition'
+      )
       const file = new Blob([response.data])
       console.log(filename)
       let fileURL = window.URL.createObjectURL(file)
@@ -143,7 +144,7 @@ export default {
     }
   },
 
-  async deleteCandidateFromCv ({commit}, payload) {
+  async deleteCandidateFromCv ({ commit }, payload) {
     try {
       let result = await api.deleteCandidateFromCv(payload)
       // if success return 0
@@ -157,7 +158,7 @@ export default {
     // commit('deleteListCvByUserId', payload.id)
   },
 
-  async update ({commit}, payload) {
+  async update ({ commit }, payload) {
     try {
       let result = await api.update(payload)
       // if success return 0
@@ -170,7 +171,7 @@ export default {
     }
   },
 
-  async reject ({commit}, payload) {
+  async reject ({ commit }, payload) {
     try {
       console.log('reject api: ', payload)
       let result = await api.reject(payload)
@@ -184,7 +185,7 @@ export default {
     }
   },
 
-  async getHiringSession ({commit}, payload) {
+  async getHiringSession ({ commit }, payload) {
     let result
     try {
       let response = await api.getHiringSession(payload)
@@ -197,7 +198,7 @@ export default {
     commit('setSessionHistory', result)
   },
 
-  async createHiringSession ({commit}, payload) {
+  async createHiringSession ({ commit }, payload) {
     let result
     try {
       let response = await api.createHiringSession(payload)
@@ -210,7 +211,7 @@ export default {
     commit('createHiringSession', result)
   },
 
-  async getDetailSession ({commit}, payload) {
+  async getDetailSession ({ commit }, payload) {
     let result
     try {
       let response = await api.getDetailSession(payload)
@@ -222,7 +223,7 @@ export default {
     commit('setDetailSession', result)
   },
 
-  async updateSession ({commit}, payload) {
+  async updateSession ({ commit }, payload) {
     let result
     try {
       let response = await api.updateSession(payload)
@@ -234,7 +235,7 @@ export default {
     commit('updateSession', result)
   },
 
-  async deleteSession ({commit}, payload) {
+  async deleteSession ({ commit }, payload) {
     try {
       let response = await api.deleteSession(payload)
       console.log(response)
@@ -244,7 +245,7 @@ export default {
     commit('deleteSession', payload.id)
   },
 
-  async getSessionName ({commit}, payload) {
+  async getSessionName ({ commit }, payload) {
     let result
     try {
       let response = await api.getSessionName(payload)
@@ -256,7 +257,7 @@ export default {
     commit('setSessionName', result)
   },
 
-  async getSessionN ({commit}, payload) {
+  async getSessionN ({ commit }, payload) {
     let result
     try {
       let response = await api.getSession(payload)
@@ -267,7 +268,7 @@ export default {
     }
     commit('setSession', result)
   },
-  async createSessions ({commit}, payload) {
+  async createSessions ({ commit }, payload) {
     let result
     try {
       let response = await api.createSession(payload)
@@ -278,9 +279,7 @@ export default {
     commit('setCreateSession', result)
   },
 
-  async changeSessionHistory ({commit}, payload) {
+  async changeSessionHistory ({ commit }, payload) {
     commit('setSessionHistory', payload.data)
-  },
-
-
+  }
 }

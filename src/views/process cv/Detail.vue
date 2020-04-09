@@ -921,7 +921,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/components/_avatar.scss';
+@import '../../scss/components/_image.scss';
 @import '../../scss/components/_form.scss';
 @import '../../scss/components/_3-columns.scss';
 </style>

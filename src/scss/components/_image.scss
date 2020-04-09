@@ -1,3 +1,5 @@
+@import '../abstracts/variables';
+
 .avatar {
     display: inline-block;
     .v-image {
@@ -12,5 +14,16 @@
             height: 130px;
             border-radius: 50%;
         }
+    }
+}
+
+.icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    color: $c-icon;
+    
+    &--disabled {
+        color: grey;
     }
 }

@@ -132,5 +132,5 @@ export default {
   @import '@/scss/components/_btn.scss';
   @import '@/scss/components/_box.scss';
   @import '@/scss/components/_form.scss';
-  @import '@/scss/components/_avatar.scss';
+  @import '@/scss/components/_image.scss';
 </style>

@@ -1,12 +1,14 @@
 <template>
-  <div>
-    <div class="two-col-container">
-      <div class="small-col">
+  <div class="cv-management">
+
+    <!-- Title & search -->
+    <v-row>
+      <v-col cols="3">
         <h3
           class="heading heading--small"
-          style="margin: 0.5rem 0 2.8rem 0; height: 48px;line-height:48px">{{ $t('manageCv.header') }}</h3>
-      </div>
-      <div class="col">
+        >{{ $t('manageCv.header') }}</h3>
+      </v-col>
+      <v-col cols="9">
         <v-text-field
           v-model="searchText"
           solo
@@ -14,21 +16,25 @@
           prepend-inner-icon="mdi-magnify"
           @keyup="search"
         />
-      </div>
-    </div>
-    <div class="two-col-container">
-      <div class="small-col">
+      </v-col>
+    </v-row>
+
+    <!-- Filter & table -->
+    <v-row>
+      <v-col
+        cols="3">
         <v-form
           ref="form"
           lazy-validation
           class="formfilter box pl-2"
-          style="max-height: 700px; overflow-y: auto; overflow-x: hidden;">
+          style="max-height: 700px; overflow-y: auto; overflow-x: hidden; padding: 0;">
           <!-- period -->
           <div>
             <div class="label">
               {{ $t('manageCv.period') }}
             </div>
             <div>
+              <!-- From ... to -->
               <div class="input input--short">
                 <v-menu
                   ref="from_menu"
@@ -45,6 +51,7 @@
                       solo
                       readonly
                       dense
+                      placeholder="from"
                       v-on="on"
                     />
                   </template>
@@ -74,6 +81,7 @@
                       solo
                       readonly
                       dense
+                      placeholder="to"
                       v-on="on"
                     />
                   </template>
@@ -87,12 +95,12 @@
                   />
                 </v-menu>
               </div>
+
               <!-- Find -->
               <div>
                 <v-btn
                   class="btn btn--primary mb-5"
                   style="width: 50%"
-                  large
                   @click="findCv"
                 >
                   {{ $t('manageCv.btnFind') }}
@@ -100,22 +108,46 @@
               </div>
             </div>
           </div>
+          <v-divider/>
 
+          <h5 class="sub-heading mt-3">
+            Filter
+          </h5>
           <!-- status -->
           <div>
-            <v-divider/>
-            <div class="input input--long">
+            <v-row
+              justify="space-between"
+              style="margin: 0;">
               <v-checkbox
                 v-model="filterList.is_used"
-                :label= "$t('manageCv.filter.used')"
                 value="1"
-                class="mx-2" />
+                class="mx-2">
+                <template v-slot:label>
+                  <span
+                    class="mr-2"
+                    v-text="$t('manageCv.filter.used')"/>
+                  <img
+                    src="@/icons/add-circle-disabled.svg"
+                    class="icon"
+                    alt="icon">
+                </template>
+              </v-checkbox>
               <v-checkbox
                 v-model="filterList.is_used"
                 :label= "$t('manageCv.filter.new')"
                 value="0"
-                class="mx-2"/>
-            </div>
+                class="mx-2">
+                <template v-slot:label>
+                  <span
+                    class="mr-2"
+                    v-text="$t('manageCv.filter.new')"/>
+                  <img
+                    src="@/icons/new.svg"
+                    class="icon"
+                    alt="icon">
+                </template>
+              </v-checkbox>
+            </v-row>
           </div>
 
           <div>
@@ -304,10 +336,9 @@
           </div>
         </v-form>
 
-      </div>
-
-      <!-- table result -->
-      <div class="col">
+      </v-col>
+      <v-col cols="9">
+        <!-- table result -->
 
         <v-data-table
           id="table"
@@ -420,19 +451,17 @@
 
         <v-btn
           class="btn btn--primary"
-          @click="addToHiring"
-        >
+          @click="addToHiring">
           {{ $t('manageCv.btnAdd') }}
         </v-btn>
         <v-btn
           class="ml-4 btn btn--secondary"
-          @click="deleteCV"
-        >
+          @click="deleteCV">
           {{ $t('manageCv.btnDelete') }}
         </v-btn>
-      </div>
-    </div>
+      </v-col>
 
+    </v-row>
     <!-- raw -->
     <cvDetailDialog
       :show-dialog="showCvDetailDialog"
@@ -452,6 +481,96 @@ export default {
     return {
       ...mapState('management', ['cvList']),
       cvs: [],
+      draftData: [
+        {
+          photo: null,
+          birthday: '1-1-2020', // mm-dd-yyyy
+          gender: 0, // 0 -> male, 1: female
+          email: 'abc@gmail.com',
+          phone: '0929123456',
+          address: '227 Nguyễn Văn Cừ, phường 4, quận 3, thành phố Hồ Chí Minh',
+          school_name: 'Đại học Khoa học Tự nhiên',
+          major: 'Kĩ thuật phần mềm',
+          school_level: 'Đại học',
+          seasion: '2016-2020', // should change to season
+          is_graduated: 0, // 0 -> undergraduate, 1 -> graduated
+          tech: 'c++,c#,c,java,html,css,javascript',
+          created_at: '1-1-2020',
+          updated_at: null,
+          existed: [],
+          provider: 'ITViec',
+          note: 'Đây là một đoạn note cực kì dài, để kiểm tra xem khả năng co giãn của giao diện có tốt không',
+          is_used: 0, // 0 -> new, used
+          confirm: 0, // 0 -> none, confirm
+          status: 1 // 1 -> normal, 2 -> rejected, 3 -> denied, 4 -> delay
+        },
+        {
+          photo: null,
+          birthday: '1-1-2020', // mm-dd-yyyy
+          gender: 1, // 0 -> male, 1: female
+          email: 'abc@gmail.com',
+          phone: '0929123456',
+          address: '227 Nguyễn Văn Cừ, phường 4, quận 3, thành phố Hồ Chí Minh',
+          school_name: 'Đại học Khoa học Tự nhiên',
+          major: 'Kĩ thuật phần mềm',
+          school_level: 'Đại học',
+          seasion: '2016-2020', // should change to season
+          is_graduated: 1, // 0 -> undergraduate, 1 -> graduated
+          tech: 'c++,c#,c,java,html,css,javascript',
+          created_at: '1-1-2020',
+          updated_at: '1-1-2020',
+          existed: ['a'],
+          provider: 'ITViec',
+          note: 'Đây là một đoạn note cực kì dài, để kiểm tra xem khả năng co giãn của giao diện có tốt không',
+          is_used: 1, // 0 -> new, used
+          confirm: 2, // 0 -> none, confirm
+          status: 2 // 1 -> normal, 2 -> rejected, 3 -> denied, 4 -> delay
+        },
+        {
+          photo: null,
+          birthday: '1-1-2020', // mm-dd-yyyy
+          gender: 0, // 0 -> male, 1: female
+          email: 'abc@gmail.com',
+          phone: '0929123456',
+          address: '227 Nguyễn Văn Cừ, phường 4, quận 3, thành phố Hồ Chí Minh',
+          school_name: 'Đại học Khoa học Tự nhiên',
+          major: 'Kĩ thuật phần mềm',
+          school_level: 'Đại học',
+          seasion: '2016-2020', // should change to season
+          is_graduated: 0, // 0 -> undergraduate, 1 -> graduated
+          tech: 'c++,c#,c,java,html,css,javascript',
+          created_at: '1-1-2020',
+          updated_at: null,
+          existed: [],
+          provider: 'ITViec',
+          note: 'Đây là một đoạn note cực kì dài, để kiểm tra xem khả năng co giãn của giao diện có tốt không',
+          is_used: 0, // 0 -> new, used
+          confirm: 0, // 0 -> none, confirm
+          status: 3 // 1 -> normal, 2 -> rejected, 3 -> denied, 4 -> delay
+        },
+        {
+          photo: null,
+          birthday: '1-1-2020', // mm-dd-yyyy
+          gender: 0, // 0 -> male, 1: female
+          email: 'abc@gmail.com',
+          phone: '0929123456',
+          address: '227 Nguyễn Văn Cừ, phường 4, quận 3, thành phố Hồ Chí Minh',
+          school_name: 'Đại học Khoa học Tự nhiên',
+          major: 'Kĩ thuật phần mềm',
+          school_level: 'Đại học',
+          seasion: '2016-2020', // should change to season
+          is_graduated: 0, // 0 -> undergraduate, 1 -> graduated
+          tech: 'c++,c#,c,java,html,css,javascript',
+          created_at: '1-1-2020',
+          updated_at: null,
+          existed: [],
+          provider: 'ITViec',
+          note: 'Đây là một đoạn note cực kì dài, để kiểm tra xem khả năng co giãn của giao diện có tốt không',
+          is_used: 0, // 0 -> new, used
+          confirm: 0, // 0 -> none, confirm
+          status: 4 // 1 -> normal, 2 -> rejected, 3 -> denied, 4 -> delay
+        }
+      ],
       showCvDetailDialog: false,
       // general
       // search
@@ -587,18 +706,22 @@ export default {
     },
 
     filteredCvs () {
-      var filter = this.filterList
+      /**
+       * need to be removed, the code below need to be uncomment
+       */
+      return this.cvs
+    //   var filter = this.filterList
 
-      if ((filter.status === 1 || filter.status === null) &&
-      (filter.confirm === null) &&
-      (filter.is_used === null)) { return this.cvs }
+    //   if ((filter.status === 1 || filter.status === null) &&
+    //   (filter.confirm === null) &&
+    //   (filter.is_used === null)) { return this.cvs }
 
-      return this.cvs.filter(cv => {
-        let resultCheckStatus = cv.status === filter.status || filter.status === null
-        let resultCheckConfirm = cv.confirm === filter.confirm || filter.confirm === null
-        let resultCheckUsed = cv.is_used === parseInt(filter.is_used) || filter.is_used === null
-        return (resultCheckUsed && resultCheckStatus && resultCheckConfirm)
-      })
+    //   return this.cvs.filter(cv => {
+    //     let resultCheckStatus = cv.status === filter.status || filter.status === null
+    //     let resultCheckConfirm = cv.confirm === filter.confirm || filter.confirm === null
+    //     let resultCheckUsed = cv.is_used === parseInt(filter.is_used) || filter.is_used === null
+    //     return (resultCheckUsed && resultCheckStatus && resultCheckConfirm)
+    //   })
     }
   },
   watch: {
@@ -608,9 +731,13 @@ export default {
 
   },
   async created () {
-    console.log('cv list', this.getCvs())
-    this.cvs = this.getCvs()
-    // get page info
+    // console.log('cv list', this.getCvs())
+    // this.cvs = this.getCvs()
+
+    /**
+     * Need to be remove, the code above need to be uncomment
+     */
+    this.cvs = this.draftData
   },
   // mounted: function () {
   //   // var dialogCv = this.dialog_CV
@@ -653,12 +780,15 @@ export default {
     },
 
     getDateFromDateTime (dateTime) {
-      if (dateTime === null || dateTime === undefined) {
+      if (dateTime === null || dateTime === undefined || dateTime.length < 1) {
         return
       }
       // eslint-disable-next-line no-useless-escape
       let pattern = /(\d{4})\-(\d{2})\-(\d{2})/
-      let date = dateTime.match(pattern)[0]
+      let date = dateTime.match(pattern)
+      if (date !== null) {
+        return date[0]
+      }
       return date
     },
     prepareSkill (strSkill) {
@@ -758,19 +888,12 @@ export default {
 @import '../../scss/components/_btn.scss';
 @import '@/scss/components/_form-filter.scss';
 @import '@/scss/components/_form.scss';
-@import '@/scss/components/_2-columns.scss';
-@import '@/scss/components/_avatar.scss';
+@import '@/scss/components/_image.scss';
+@import '@/scss/pages/_cv-management.scss';
 
 .custom-radio {
   .v-input__slot {
     margin-bottom: 0 !important;
   }
-}
-.avatar {
-  height: 100%;
-  display: grid;
-  align-items: center;
-  justify-items: start;
-  padding: 0.5em;
 }
 </style>

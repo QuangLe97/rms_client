@@ -736,10 +736,9 @@ export default {
 
 <style lang="scss">
   @import '../../scss/components/_3-columns.scss';
-  @import '../../scss/components/_avatar.scss';
   @import '../../scss/components/_form.scss';
   @import '../../scss/components/_btn.scss';
-  @import '@/scss/components/_avatar.scss';
+  @import '@/scss/components/_image.scss';
   .custom-radio {
     .v-input__slot {
       margin-bottom: 0 !important;

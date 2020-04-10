@@ -2,7 +2,7 @@
   <div class="cv-management">
 
     <!-- Title & search -->
-    <v-row>
+    <v-row class="mb-2">
       <v-col cols="3">
         <h3
           class="heading heading--small"
@@ -14,6 +14,7 @@
           solo
           label="Search..."
           prepend-inner-icon="mdi-magnify"
+          hide-details
           @keyup="search"
         />
       </v-col>
@@ -22,7 +23,8 @@
     <!-- Filter & table -->
     <v-row>
       <v-col
-        cols="3">
+        cols="3"
+        style="">
         <v-form
           ref="form"
           lazy-validation
@@ -127,7 +129,7 @@
                     class="mr-2"
                     v-text="$t('manageCv.filter.used')"/>
                   <img
-                    src="@/icons/add-circle-disabled.svg"
+                    src="@/icons/old.svg"
                     class="icon"
                     alt="icon">
                 </template>
@@ -150,39 +152,91 @@
             </v-row>
           </div>
 
-          <div>
-            <v-divider/>
-            <div class="input input--long">
+          <v-divider/>
+          <v-row
+            justify="space-between"
+            style="margin: 0;">
 
-              <v-checkbox
-                v-model="filterList.status"
-                :value="2"
-                :label= "$t('manageCv.filter.reject')"
-                class="mx-2"/>
-              <v-checkbox
-                v-model="filterList.status"
-                :value="4"
-                :label= "$t('manageCv.filter.delayInter')"
-                class="mx-2"/>
-              <v-checkbox
-                v-model="filterList.status"
-                :value="3"
-                :label= "$t('manageCv.filter.deniedInter')"
-                class="mx-2"/>
-            </div>
-          </div>
+            <v-checkbox
+              v-model="filterList.status"
+              :value="2"
+              class="mx-2">
+              <template v-slot:label>
+                <span
+                  class="mr-2"
+                  v-text="$t('manageCv.filter.reject')"/>
+                <img
+                  src="@/icons/file-deny.svg"
+                  class="icon"
+                  alt="icon">
+              </template>
+            </v-checkbox>
+            <v-checkbox
+              v-model="filterList.status"
+              :value="4"
+              :label= "$t('manageCv.filter.delayInter')"
+              class="mx-2">
+              <template v-slot:label>
+                <span
+                  class="mr-2"
+                  v-text="$t('manageCv.filter.delayInter')"/>
+                <img
+                  src="@/icons/delay.svg"
+                  class="icon"
+                  alt="icon">
+              </template>
+            </v-checkbox>
+            <v-checkbox
+              v-model="filterList.status"
+              :value="3"
+              :label= "$t('manageCv.filter.deniedInter')"
+              class="mx-2">
+              <template v-slot:label>
+                <span
+                  class="mr-2"
+                  v-text="$t('manageCv.filter.deniedInter')"/>
+                <img
+                  src="@/icons/deny-times.svg"
+                  class="icon"
+                  alt="icon">
+              </template>
+            </v-checkbox>
+          </v-row>
 
-          <div>
-            <v-divider/>
-            <div class="input input--long">
-              <v-checkbox
-                v-model="filterList.confirm"
-                :value="1"
-                :label= "$t('manageCv.filter.confirm')"
-                class="mx-2"/>
-            </div>
+          <v-divider/>
+          <v-row
+            justify="space-between"
+            style="margin: 0;">
+            <v-checkbox
+              v-model="filterList.confirm"
+              value="1"
+              class="mx-2">
+              <template v-slot:label>
+                <span
+                  class="mr-2"
+                  v-text="$t('manageCv.filter.confirm')"/>
+                <img
+                  src="@/icons/success-cloud.svg"
+                  class="icon"
+                  alt="icon">
+              </template>
+            </v-checkbox>
+            <v-checkbox
+              v-model="filterList.confirm"
+              value="0"
+              class="mx-2">
+              <template v-slot:label>
+                <span
+                  class="mr-2"
+                  v-text="$t('manageCv.filter.unconfirmed')"/>
+                <img
+                  src="@/icons/success-cloud-disabled.svg"
+                  class="icon"
+                  alt="icon">
+              </template>
+            </v-checkbox>
+          </v-row>
 
-          </div>
           <v-divider />
           <!-- advanced -->
           <div>
@@ -339,6 +393,18 @@
       </v-col>
       <v-col cols="9">
         <!-- table result -->
+        <div class="mb-5">
+          <v-btn
+            class="btn btn--primary"
+            @click="addToHiring">
+            {{ $t('manageCv.btnAdd') }}
+          </v-btn>
+          <v-btn
+            class="ml-4 btn btn--secondary"
+            @click="deleteCV">
+            {{ $t('manageCv.btnDelete') }}
+          </v-btn>
+        </div>
 
         <v-data-table
           id="table"
@@ -349,7 +415,7 @@
           hide-default-footer
           disable-pagination
           class="elevation-1"
-          style="max-height: 685px; overflow-y: auto;"
+          style=""
           show-select
           @click:row="showCvDetail">
           <!-- avatar column -->
@@ -424,7 +490,9 @@
           </template>
           <!-- note column -->
           <template v-slot:item.note="{ item }">
-            {{ item.note }}
+            <div class="three-line-ellipse">
+              {{ item.note }}
+            </div>
           </template>
           <!-- status -->
           <template v-slot:item.status="{ item }">
@@ -448,20 +516,10 @@
             small
             @click="loadNextPage"><v-icon>$next</v-icon></v-btn>
         </div>
-
-        <v-btn
-          class="btn btn--primary"
-          @click="addToHiring">
-          {{ $t('manageCv.btnAdd') }}
-        </v-btn>
-        <v-btn
-          class="ml-4 btn btn--secondary"
-          @click="deleteCV">
-          {{ $t('manageCv.btnDelete') }}
-        </v-btn>
       </v-col>
 
     </v-row>
+
     <!-- raw -->
     <cvDetailDialog
       :show-dialog="showCvDetailDialog"
@@ -484,6 +542,7 @@ export default {
       draftData: [
         {
           photo: null,
+          name_candidate: 'Nguyen Van A',
           birthday: '1-1-2020', // mm-dd-yyyy
           gender: 0, // 0 -> male, 1: female
           email: 'abc@gmail.com',
@@ -506,6 +565,7 @@ export default {
         },
         {
           photo: null,
+          name_candidate: 'Nguyen Van B',
           birthday: '1-1-2020', // mm-dd-yyyy
           gender: 1, // 0 -> male, 1: female
           email: 'abc@gmail.com',
@@ -528,6 +588,7 @@ export default {
         },
         {
           photo: null,
+          name_candidate: 'Nguyen Thi C',
           birthday: '1-1-2020', // mm-dd-yyyy
           gender: 0, // 0 -> male, 1: female
           email: 'abc@gmail.com',
@@ -550,6 +611,7 @@ export default {
         },
         {
           photo: null,
+          name_candidate: 'Nguyen Thi D',
           birthday: '1-1-2020', // mm-dd-yyyy
           gender: 0, // 0 -> male, 1: female
           email: 'abc@gmail.com',
@@ -673,18 +735,20 @@ export default {
         { text: this.$t('manageCv.headerTable.perInfo'),
           align: 'left',
           sortable: false,
-          value: 'person'
+          value: 'person',
+          width: '150px'
         },
         { text: this.$t('manageCv.headerTable.contact'),
           value: 'contact',
           align: 'left',
           sortable: false,
-          width: '300px'
+          width: '270px'
         },
         { text: this.$t('manageCv.headerTable.edu'),
           value: 'edu',
           align: 'left',
-          sortable: false
+          sortable: false,
+          width: '200px'
         },
         { text: this.$t('manageCv.headerTable.file'),
           value: 'filInfo',
@@ -695,7 +759,7 @@ export default {
           value: 'note',
           align: 'left',
           sortable: false,
-          width: '100px'
+          width: '200px'
         },
         { text: this.$t('manageCv.headerTable.stt'),
           value: 'status',

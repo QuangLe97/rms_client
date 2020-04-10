@@ -139,6 +139,7 @@
       "delayInter": "delayed interview",
       "deniedInter": "denied interview",
       "confirm": "confirmed",
+      "unconfirmed": "unconfirmed",
       "advanced": "Advanced",
       "scho": "School",
       "schoNote": "name of school",

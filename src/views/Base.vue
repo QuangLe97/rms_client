@@ -169,8 +169,8 @@
       </v-content>
 
       <v-footer
-        absolute
         app
+        absolute
         class="blue-grey darken-3">
         <v-card-text
           class="justify-center white--text"

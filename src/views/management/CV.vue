@@ -391,8 +391,9 @@
         </v-form>
 
       </v-col>
+
+      <!-- table result -->
       <v-col cols="9">
-        <!-- table result -->
         <div class="mb-5">
           <v-btn
             class="btn btn--primary"
@@ -445,8 +446,17 @@
             </span><br>
             <span class="content-secondary">
 
-              {{ item.birthday }}<br>
-              {{ item.gender == 1 ? 'male':'female' }}
+              {{ item.birthday }}<span class="mr-1" />
+              <img
+                v-if="item.gender"
+                src="@/icons/male.svg"
+                class="icon icon--small"
+                alt="male">
+              <img
+                v-else
+                src="@/icons/female.svg"
+                class="icon icon--small"
+                alt="female">
             </span>
           </template>
           <!-- contact column -->
@@ -469,39 +479,82 @@
             <span class="content-secondary">
               {{ item.major }}<br>
               {{ item.school_level }}<br>
-              {{ item.seasion }}<br>
+              {{ item.seasion }}<span class="mr-1"/>
               <!-- 0 -> undergraduate, 1 -> graduated -->
-              {{ item.is_graduated === 0 ? 'undergraduate' : 'graduated' }}
+              <img
+                v-if="item.is_graduated"
+                src="@/icons/graduated.svg"
+                class="icon icon--small"
+                alt="graduated">
+              <img
+                v-else
+                src="@/icons/graduated-disabled.svg"
+                class="icon icon--small"
+                alt="undergraduate">
             </span>
-          </template>
-          <!-- ability column -->
-          <template v-slot:item.tech="{ item }">
-            <div style="word-break: break-word; width: 200px;">{{ prepareSkill(item.tech) }}</div>
           </template>
           <!-- file column -->
           <template v-slot:item.filInfo="{ item }">
             <div style="width: 120px">
-              <span class="content-secondary">upload:</span>{{ getDateFromDateTime(item.created_at) }}<br>
-              <span class="content-secondary">update:</span>{{ getDateFromDateTime(item.updated_at) }}<br>
-              <span class="content-secondary">{{ item.existed.length == 0 ? 'single':'duplicated' }}<br>
-                {{ item.provider }}
-              </span>
+              <img
+                src="@/icons/file-upload.svg"
+                class="icon icon--small"
+                alt="file-upload">{{ getDateFromDateTime(item.created_at) }}<br>
+              <img
+                src="@/icons/file-edit.svg"
+                class="icon icon--small"
+                alt="file-update">{{ getDateFromDateTime(item.updated_at) }}<br>
+              <img
+                src="@/icons/add-square.svg"
+                class="icon icon--small"
+                alt="duplicated cv">
+              {{ item.existed.length }}<br>
+              {{ item.provider }}
             </div>
           </template>
           <!-- note column -->
           <template v-slot:item.note="{ item }">
-            <div class="three-line-ellipse">
+            <div class="three-line-ellipse content-secondary">
               {{ item.note }}
             </div>
           </template>
           <!-- status -->
           <template v-slot:item.status="{ item }">
-            {{ item.is_used !== 0 ? 'used':'new' }}<br>
-            {{ item.confirm === 0 ? 'none':'confirm' }}<br>
-            {{ item.status === 1 ? 'normal':null }}
-            {{ item.status === 2 ? 'reject':null }}
-            {{ item.status === 3 ? 'denise':null }}
-            {{ item.status === 4 ? 'delay':null }}
+            <img
+              v-if="item.is_used"
+              src="@/icons/old.svg"
+              class="icon icon--medium"
+              alt="">
+            <img
+              v-else
+              src="@/icons/new.svg"
+              class="icon icon--medium"
+              alt="">
+            <img
+              v-if="item.confirm"
+              src="@/icons/success-cloud.svg"
+              class="icon icon--medium"
+              alt="">
+            <img
+              v-else
+              src="@/icons/success-cloud-disabled.svg"
+              class="icon icon--medium"
+              alt="confirm/unconfirm">
+            <img
+              v-if="item.status === 2"
+              src="@/icons/file-deny.svg"
+              class="icon icon--medium"
+              alt="confirm/unconfirm">
+            <img
+              v-if="item.status === 3"
+              src="@/icons/deny-times.svg"
+              class="icon icon--medium"
+              alt="confirm/unconfirm">
+            <img
+              v-if="item.status === 4"
+              src="@/icons/delay.svg"
+              class="icon icon--medium"
+              alt="confirm/unconfirm">
           </template>
         </v-data-table>
 
@@ -853,7 +906,7 @@ export default {
       if (date !== null) {
         return date[0]
       }
-      return date
+      return dateTime
     },
     prepareSkill (strSkill) {
       if (typeof (strSkill) !== 'string') {

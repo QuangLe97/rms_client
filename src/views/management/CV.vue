@@ -1,5 +1,5 @@
 <template>
-  <div class="cv-management">
+  <div class="management">
 
     <!-- Title & search -->
     <v-row class="mb-2">
@@ -23,8 +23,7 @@
     <!-- Filter & table -->
     <v-row>
       <v-col
-        cols="3"
-        style="">
+        cols="3">
         <v-form
           ref="form"
           lazy-validation
@@ -495,22 +494,20 @@
           </template>
           <!-- file column -->
           <template v-slot:item.filInfo="{ item }">
-            <div style="width: 120px">
-              <img
-                src="@/icons/file-upload.svg"
-                class="icon icon--small"
-                alt="file-upload">{{ getDateFromDateTime(item.created_at) }}<br>
-              <img
-                src="@/icons/file-edit.svg"
-                class="icon icon--small"
-                alt="file-update">{{ getDateFromDateTime(item.updated_at) }}<br>
-              <img
-                src="@/icons/add-square.svg"
-                class="icon icon--small"
-                alt="duplicated cv">
-              {{ item.existed.length }}<br>
-              {{ item.provider }}
-            </div>
+            <img
+              src="@/icons/file-upload.svg"
+              class="icon icon--small"
+              alt="file-upload">{{ getDateFromDateTime(item.created_at) }}<br>
+            <img
+              src="@/icons/file-edit.svg"
+              class="icon icon--small"
+              alt="file-update">{{ getDateFromDateTime(item.updated_at) }}<br>
+            <img
+              src="@/icons/add-square.svg"
+              class="icon icon--small"
+              alt="duplicated cv">
+            {{ item.existed.length }}<br>
+            {{ item.provider }}
           </template>
           <!-- note column -->
           <template v-slot:item.note="{ item }">
@@ -523,38 +520,38 @@
             <img
               v-if="item.is_used"
               src="@/icons/old.svg"
-              class="icon icon--medium"
+              class="icon icon--medium mr-1"
               alt="">
             <img
               v-else
               src="@/icons/new.svg"
-              class="icon icon--medium"
+              class="icon icon--medium mr-1"
               alt="">
             <img
               v-if="item.confirm"
               src="@/icons/success-cloud.svg"
-              class="icon icon--medium"
+              class="icon icon--medium mr-1"
               alt="">
             <img
               v-else
               src="@/icons/success-cloud-disabled.svg"
-              class="icon icon--medium"
+              class="icon icon--medium mr-1"
               alt="confirm/unconfirm">
             <img
               v-if="item.status === 2"
               src="@/icons/file-deny.svg"
-              class="icon icon--medium"
-              alt="confirm/unconfirm">
+              class="icon icon--medium mr-1"
+              alt="reject">
             <img
               v-if="item.status === 3"
               src="@/icons/deny-times.svg"
-              class="icon icon--medium"
-              alt="confirm/unconfirm">
+              class="icon icon--medium mr-1"
+              alt="deny-interview">
             <img
               v-if="item.status === 4"
               src="@/icons/delay.svg"
-              class="icon icon--medium"
-              alt="confirm/unconfirm">
+              class="icon icon--medium mr-1"
+              alt="delay-interview">
           </template>
         </v-data-table>
 
@@ -806,7 +803,8 @@ export default {
         { text: this.$t('manageCv.headerTable.file'),
           value: 'filInfo',
           align: 'left',
-          sortable: false
+          sortable: false,
+          width: '120px'
         },
         { text: this.$t('manageCv.headerTable.note'),
           value: 'note',
@@ -817,7 +815,8 @@ export default {
         { text: this.$t('manageCv.headerTable.stt'),
           value: 'status',
           align: 'center',
-          sortable: false
+          sortable: false,
+          width: '100px'
         }
       ]
     },
@@ -1006,7 +1005,7 @@ export default {
 @import '@/scss/components/_form-filter.scss';
 @import '@/scss/components/_form.scss';
 @import '@/scss/components/_image.scss';
-@import '@/scss/pages/_cv-management.scss';
+@import '@/scss/pages/_management.scss';
 
 .custom-radio {
   .v-input__slot {
